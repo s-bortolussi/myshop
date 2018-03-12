@@ -1,0 +1,10 @@
+security:
+  oauth2:
+    client:
+      client-id: myshop
+      client-secret: secret
+      scope: all
+spring:
+  security:
+    user:
+      password: password
