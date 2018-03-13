@@ -32,19 +32,19 @@ public class MyShopApplication {
 
 
     @Configuration
-    @Order(-200)
+    @Order(-20)
     protected static class LoginConfig extends WebSecurityConfigurerAdapter {
-
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
+            // @formatter:off
             http
-                    .formLogin()
+                    .formLogin().permitAll()
                     .and()
-                    .httpBasic().disable()
-                    .anonymous().disable()
+                    .requestMatchers().antMatchers("/login", "/logout", "/oauth/authorize", "/oauth/confirm_access")
+                    .and()
                     .authorizeRequests().anyRequest().authenticated();
-
+            // @formatter:on
         }
 
 
