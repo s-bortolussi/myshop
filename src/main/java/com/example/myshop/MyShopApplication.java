@@ -70,6 +70,7 @@ public class MyShopApplication {
                 clientDetailsServiceConfigurer.inMemory()
                         .withClient(clientProperties.getClientId())
                         .secret("{noop}" + clientProperties.getClientSecret())//https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-security-oauth2-authorization-server
+                        .authorizedGrantTypes("authorization_code", "implicit")
                         .scopes("all");
             }
 
