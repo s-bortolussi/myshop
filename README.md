@@ -1,4 +1,4 @@
-# My Shop
+# MyShop
 
 A sample app with OAuth 2.0 protected resources.
 
@@ -11,17 +11,26 @@ Basically, MyShop :
 
 See [Spring boot OAuth 2.0](https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/) for details.
 
-# Running My Shop
+# Running MyShop
 ```bash
 
 #Set OAuth 2.0 Authorization Server basic authentication
 $ export SPRING_SECURITY_USER_NAME: <?>
 $ export SPRING_SECURITY_USER_PASSWORD: <?>
 
-#Register OAuth 2.0 client in the Authorization Server
-$ export SECURITY_OAUTH2_CLIENT_CLIENT_ID: <?>
-$ export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET: <?>
-$ export SECURITY_OAUTH2_CLIENT_SCOPE: all
+#Register an OAuth 2.0 client in the Authorization Server
+$ export OAUTH2_CLIENTS[0]_CLIENT_ID: <?>
+$ export OAUTH2_CLIENTS[0]_CLIENT_SECRET: <?>
+$ export OAUTH2_CLIENTS[0]_AUTHORIZED-GRANT-TYPES: <?>
+$ export OAUTH2_CLIENTS[0]_SCOPES: <?>
+$ export OAUTH2_CLIENTS[0]_REGISTERED-REDIRECT-URIS: <?>
+
+#Register another OAuth 2.0 client in the Authorization Server
+$ export OAUTH2_CLIENTS[1]_CLIENT_ID: <?>
+$ export OAUTH2_CLIENTS[1]_CLIENT_SECRET: <?>
+$ export OAUTH2_CLIENTS[1]_AUTHORIZED-GRANT-TYPES: <?>
+$ export OAUTH2_CLIENTS[1]_SCOPES: <?>
+$ export OAUTH2_CLIENTS[1]_REGISTERED-REDIRECT-URIS: <?>
 
 $ ../mvnw package
 $ java -jar target/*.jar

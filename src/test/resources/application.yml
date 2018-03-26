@@ -1,10 +1,20 @@
-security:
-  oauth2:
-    client:
-      client-id: myshop
-      client-secret: secret
-      scope: all
+oauth2-clients:
+  - client-id: myshop
+    client-secret: secret
+    registered-redirect-uris: http://localhost:8081/login
+    authorized-grant-types: authorization_code, implicit
+    scopes: order.write
+  - client-id: djingo-ui
+    client-secret: secret
+    registered-redirect-uris: http://localhost:8081/client/login
+    authorized-grant-types: authorization_code, implicit
+    scopes: order.write
+
 spring:
   security:
     user:
       password: password
+
+logging:
+  level:
+    com.example.myshop: debug
